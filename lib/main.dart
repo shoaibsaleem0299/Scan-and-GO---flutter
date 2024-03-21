@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/Widgets/sign_up.dart';
+import 'package:myapp/components/cards.dart';
 // import 'package:myapp/list_tile_screen.dart';
 
 main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SignUp(),
+      home: ProductCard(),
     );
   }
 }

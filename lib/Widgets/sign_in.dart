@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Widgets/sign_up.dart';
+import 'package:myapp/screens/home_screen.dart';
 import 'package:http/http.dart' as http;
-import 'package:myapp/Widgets/sign_in.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
-  final TextEditingController _usernameController = TextEditingController();
+class _SignInState extends State<SignIn> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> _registerUser() async {
-    const url = 'http://10.0.2.2/api/signup.php';
+  Future<void> _SignIn() async {
+    const url = 'http://10.0.2.2/api/signin.php';
     final response = await http.post(
       Uri.parse(url),
       body: {
-        'username': _usernameController.text,
         'email': _emailController.text,
         'password': _passwordController.text,
       },
@@ -29,7 +28,7 @@ class _SignUpState extends State<SignUp> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const SignIn(),
+          builder: (context) => const HomeScreen(),
         ),
       );
     } else {
@@ -40,7 +39,7 @@ class _SignUpState extends State<SignUp> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Error'),
-            content: Text('Failed to register. Please try again later.'),
+            content: Text('Invalid email or password.'),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
@@ -59,14 +58,9 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back),
-          tooltip: 'Back Icon',
-        ),
         centerTitle: true,
         title: const Text(
-          "SignUp",
+          "SignIn",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -86,7 +80,7 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(
                   width: 170.0,
                   child: Text(
-                    'Create      An Account',
+                    'Lets get started',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w800,
@@ -94,27 +88,6 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 const SizedBox(height: 50.0),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: _usernameController,
-                    decoration: InputDecoration(
-                        labelText: 'Username',
-                        labelStyle: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        hintText: 'e.g. John Doe',
-                        hintStyle: const TextStyle(color: Colors.black),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 237, 237, 237),
-                        prefixIcon: const Icon(Icons.person_2_sharp)),
-                  ),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
@@ -153,37 +126,16 @@ class _SignUpState extends State<SignUp> {
                         borderSide: BorderSide.none,
                       ),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 237, 237, 237),
+                      fillColor: const Color.fromARGB(255, 237, 237, 237),
                       prefixIcon: const Icon(Icons.lock),
                       suffixIcon: const Icon(Icons.remove_red_eye_rounded),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Re-Password',
-                        labelStyle: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        hintText: '!@#^&%',
-                        hintStyle: const TextStyle(color: Colors.black),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide.none,
-                        ),
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 237, 237, 237),
-                        prefixIcon: const Icon(Icons.lock),
-                        suffixIcon: const Icon(Icons.remove_red_eye_rounded)),
-                  ),
-                ),
                 const SizedBox(height: 16.0),
                 Center(
                     child: ElevatedButton(
-                  onPressed: _registerUser,
+                  onPressed: _SignIn,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 2, 180, 70),
                     elevation: 3, // Elevation
@@ -194,7 +146,7 @@ class _SignUpState extends State<SignUp> {
                         vertical: 12, horizontal: 140.0), // Padding
                   ),
                   child: const Text(
-                    'Register',
+                    'Sign In',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -303,7 +255,7 @@ class _SignUpState extends State<SignUp> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignIn(),
+                            builder: (context) => const SignUp(),
                           ),
                         );
                       },

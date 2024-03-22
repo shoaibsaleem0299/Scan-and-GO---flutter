@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               height: 16.0,
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 12, right: 12),
+              padding: EdgeInsets.only(left: 16, right: 16),
               child: UserInputField(
                 labelText: "Search Product Name",
                 hintText: "vegetable",
@@ -104,6 +104,12 @@ class HomeScreen extends StatelessWidget {
                   "https://www.theproducemoms.com/wp-content/uploads/2022/02/Broccoli-Rabe.png",
               onTap: () {},
               subTitle: "Limited Offer",
+            ),
+            const ListTile(
+              title: Text(
+                "Recommended For You",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),

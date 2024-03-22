@@ -16,30 +16,58 @@ class OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12, right: 12),
+      padding: const EdgeInsets.only(left: 16, right: 16),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          // height: 200.0,
+          height: 150.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
-            color: Color.fromARGB(255, 43, 229, 130),
+            color: Color.fromARGB(255, 35, 203, 113),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2), // Shadow color
+                spreadRadius: 5, // Spread radius
+                blurRadius: 7, // Blur radius
+                offset: Offset(0, 3), // Offset from the top-left corner
+              ),
+            ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ListTile(
-                title: Text(
-                  "50%",
-                ),
-                subtitle: Text(
-                  "Limited Offer",
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 40,
+                    ),
+                  ),
+                  Text(
+                    subTitle,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  Text(
+                    subTitle,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ],
               ),
               Image.network(
                 imageUrl,
-                width: 120, // Adjust width as needed
-                height: 100, // Adjust height as needed
+                width: 140, // Adjust width as needed
+                height: 140, // Adjust height as needed
               ),
             ],
           ),

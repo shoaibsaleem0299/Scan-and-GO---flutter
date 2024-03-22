@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:myapp/Widgets/sign_up.dart';
 import 'package:myapp/components/button_image.dart';
 import 'package:myapp/components/offer_card.dart';
+import 'package:myapp/components/product_card_widget.dart';
 import 'package:myapp/components/user_input_widget.dart';
 import 'package:myapp/components/user_tile_widget.dart';
 
@@ -111,6 +113,60 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
+            SingleChildScrollView(
+              padding: EdgeInsets.only(left: 16, right: 16),
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ProductCardWidget(
+                    title: "Apple",
+                    imageUrl:
+                        "https://www.theproducemoms.com/wp-content/uploads/2022/02/Broccoli-Rabe.png",
+                    onTap: () {},
+                    subTitle: "Fruits",
+                    price: "Rs.124.09",
+                    status: "In Stoke",
+                  ),
+                  ProductCardWidget(
+                    title: "Apple",
+                    imageUrl:
+                        "https://www.theproducemoms.com/wp-content/uploads/2022/02/Broccoli-Rabe.png",
+                    onTap: () {},
+                    subTitle: "Fruits",
+                    price: "Rs.124.09",
+                    status: "In Stoke",
+                  ),
+                  ProductCardWidget(
+                    title: "Apple",
+                    imageUrl:
+                        "https://www.theproducemoms.com/wp-content/uploads/2022/02/Broccoli-Rabe.png",
+                    onTap: () {},
+                    subTitle: "Fruits",
+                    price: "Rs.124.09",
+                    status: "In Stoke",
+                  ),
+                  ProductCardWidget(
+                    title: "Apple",
+                    imageUrl:
+                        "https://www.theproducemoms.com/wp-content/uploads/2022/02/Broccoli-Rabe.png",
+                    onTap: () {},
+                    subTitle: "Fruits",
+                    price: "Rs.124.09",
+                    status: "In Stoke",
+                  ),
+                  ProductCardWidget(
+                    title: "Apple",
+                    imageUrl:
+                        "https://www.theproducemoms.com/wp-content/uploads/2022/02/Broccoli-Rabe.png",
+                    onTap: () {},
+                    subTitle: "Fruits",
+                    price: "Rs.124.09",
+                    status: "In Stoke",
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
